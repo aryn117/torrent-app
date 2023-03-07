@@ -6,7 +6,7 @@ import Image from "next/image";
 import LinkContainer from "@/components/UI/LinkContainer";
 
 // api imports
-import fetchTorrentsHandler from "./api/fetchTorrents.js";
+import fetchTorrentsHandler from "../utils/fetchTorrents.js";
 
 // asset imports
 import homepage_svg from "./../assets/search.svg";
@@ -242,7 +242,7 @@ export default function Home() {
         {loading ? <Loading /> : null}
         {/* result list */}
         {data && data.length > 0 ? (
-          <div className="flex flex-col  h-fit  w-[95%] md:w-[65%] xl:2/3 2xl:w-[40%] mt-12  py-2">
+          <div className="flex flex-col  h-fit  w-[95%] md:w-[65%] xl:2/3 2xl:w-[40%] mt-12   py-2">
             {data.map((item, index) => (
               <LinkContainer key={index} data={item} />
             ))}
