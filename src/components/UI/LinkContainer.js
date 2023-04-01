@@ -4,46 +4,79 @@ import seeder_icon from "./../../assets/Seeders.svg";
 import leecher_icon from "./../../assets/Leechers.svg";
 import download_icon from "./../../assets/File_Icon.svg";
 import magnet_icon from "./../../assets/magnet.svg";
+import copy_link from "./../../assets/copy_link.svg";
+
 import Link from "next/link";
+import { toast } from "react-toastify";
+
+export default function LinkContainer({ data }) {
 
 
-export default function LinkContainer({data}) {
+  const copyMagnetLinkToClipboardHandler = (link) => {
+    console.log('copy fired')
+    toast("Magnet Link Copied to Clipboard");
+    navigator.clipboard.writeText(data.Magnet);
+  }
 
- 
   return (
-    <div className="flex w-full border-l-8 border-l-[#2ECC71] rounded-lg py-2 mt-2 md:mt-3  md:py-3 px-4 shadow-md bg-[#121212ee] ">
+    <div className="flex w-full border-l-8 border-l-accent rounded-lg py-2 mt-2 md:mt-3  md:py-3 px-4 shadow-md bg-base-300 ">
       <div className="flex flex-col w-[85%]">
-        <div className="flex text-white text-sm md:text-md ">
-         {data.Name}
-        </div>
+        <div className="flex text-base-content text-sm md:text-md ">{data.Name}</div>
         <div className="flex w-[90%]  md:w-1/2 justify-between">
           {/* Seeders Button */}
-          <div className="flex mt-4 text-white justify-center items-center text-md py-1 px-2  text-sm md:font-semibold bg-[#6bf6797b] rounded-md ">
+          <div className="tooltip" data-tip="Higher is Better">
+          <div className="flex mt-4 text-primary-content justify-center items-center text-md py-1 px-2  text-sm md:font-semibold bg-green-500 rounded-md ">
             <span>
-              <Image className=" mr-2" src={seeder_icon} alt="seeder icon" />
+              <Image className=" mr-1 sm:mr-2" src={seeder_icon} alt="seeder icon" />
             </span>
             <span>{data.Seeders}</span>
           </div>
+          </div>
           {/* Leechers Button */}
-          <div className="flex mt-4 text-white justify-center items-center text-md py-1 px-2 text-sm md:font-semibold bg-[#fc617db3] rounded-md ">
+          <div className="tooltip" data-tip="Lower is Better">
+          <div className="flex mt-4 text-primary-content justify-center items-center  md:text-md py-1 px-2 text-sm md:font-semibold bg-error rounded-md ">
             <span>
-              <Image className=" mr-2" src={leecher_icon} alt="seeder icon" />
+              <Image className="mr-1 sm:mr-2" src={leecher_icon} alt="seeder icon" />
             </span>
             <span>{data.Leechers}</span>
           </div>
+          </div>
           {/* Size Button */}
-          <div className="flex mt-4 text-white justify-center items-center text-md py-1 px-2 text-sm md:font-semibold bg-[#464646] rounded-md ">
+          <div className="flex mt-4 text-secondary-content justify-center items-center text-md py-1 px-2 text-sm md:font-semibold bg-secondary rounded-md ">
             <span>
-              <Image className="mr-2" src={download_icon} alt="seeder icon" />
+              <Image className="mr-1 sm:mr-2" src={download_icon} alt="seeder icon" />
             </span>
             <span>{data.Size}</span>
-          </div>       
+          </div>
         </div>
       </div>
-      <div className="flex w-[15%] justify-center items-center bg-[#12121255]">
-        <Link href={data.Magnet} className="flex rounded-full bg-black p-3 md:p-4 hover:bg-purple-500 active:scale-95 ease-out duration-200 transition-all ">
-            <Image className="shadow-md w-8 md:w-full"  src={magnet_icon} alt="magnet icon" />
+      <div className="flex flex-col md:flex-row w-[15%] justify-center items-center ">
+        {/* Direct Magnet Link Button **************************************************************************/}
+        <div className="tooltip tooltip-neutral" data-tip="Direct Magnet Link">
+        <Link href={data.Magnet}>
+          <button className=" btn mb-2 md:mb-0 md:mr-4 btn-square btn-neutral  hover:bg-neutral-focus p-2">
+            <Image
+              className="fit-content"
+              src={magnet_icon}
+              alt="magnet icon"
+            />
+          </button>
         </Link>
+        </div>
+
+        {/* Copy Magnet Link Button **************************************************************************/}       
+        <div className="tooltip" data-tip="Copy Link To Clipboard">
+
+
+          <button onClick={copyMagnetLinkToClipboardHandler} className=" btn btn-square btn-secondary  hover:bg-secondary-focus p-2">
+          <Image
+              className="fit-content"
+              src={copy_link}
+              alt="magnet icon"
+            />
+          </button>
+          </div>
+      
       </div>
     </div>
   );
