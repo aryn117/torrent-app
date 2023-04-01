@@ -11,5 +11,5 @@ export const sortArray = (arr) => {
     if (Number(temp2[j].Seeders) < Number(temp2[j + 1].Seeders))
     [temp2[j], temp2[j + 1]] = [temp2[j + 1], temp2[j]];
     
-    return temp2;
+    return temp2.filter((item) => item.Name );
   }

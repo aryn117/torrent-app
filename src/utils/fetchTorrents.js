@@ -3,11 +3,12 @@ import { sortArray } from "@/utils/utils";
 import { toast } from "react-toastify";
 
 export default async function fetchTorrentsHandler(
-  [setLoading, setData, setError, queryString, pageNumber],
+  [e, setLoading, setData, setError, queryString, pageNumber],
   res
 ) {
-
-// if the query string is empty, throw an error
+  e.preventDefault();
+  
+  // if the query string is empty, throw an error
   if (queryString === "") {
     toast.error("Please Enter a Search Query");
     return;
@@ -28,14 +29,16 @@ export default async function fetchTorrentsHandler(
       ),
     ]);
 
- 
-// if all the promises are rejected, throw an error
+    // if all the promises are rejected, throw an error
     if (
       res_1337x.value.ok === false &&
       res_pirateBay.value.ok === false &&
       res_rarbg.value.ok === false
     ) {
-      console.log("%c ⛔Error: 404, Probably Couldn't find any Search Results", "color:lightcoral; font-size:16px");
+      console.log(
+        "%c ⛔Error: 404, Probably Couldn't find any Search Results",
+        "color:lightcoral; font-size:16px"
+      );
       const rx = await res_1337x.value.json();
       throw new Error(`${rx.code}: ${rx.errorMessage}`);
     }

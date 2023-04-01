@@ -33,7 +33,7 @@ export default function Home() {
       </Head>
       <main className="flex w-full flex-col items-center  h-full">
         {/* App Container ********************************************************************************/}
-        <div className="flex flex-col shadow-2xl bg-primary justify-center rounded-xl h-fit  w-[95%] md:w-[65%] xl:2/3 2xl:w-[45%] mt-2  md:mt-12  py-2 ">
+        <div className="flex flex-col shadow-2xl bg-primary justify-center rounded-xl h-fit  w-[95%] md:w-[65%] xl:2/3 2xl:w-[45%] mt-4  md:mt-12  py-2 ">
           {/* Homepage Banner Image Container ************************************************************/}
           <div className="  flex justify-center">
             <Image
@@ -44,16 +44,18 @@ export default function Home() {
             />
           </div>
           {/* Search Box Container ***********************************************************************/}
-          <div className="flex  mb-4 justify-between w-full lg:w-2/3 place-self-center  rounded-lg p-4 h-fit  ">
+          <form className="flex  mb-4 justify-between w-full lg:w-2/3 place-self-center  rounded-lg p-4 h-fit  ">
             <input
               ref={searchQueryRef}
               type="text"
-              className="input input-bordered w-full max-w-xs"
+              className="input  focus:outline-none w-full max-w-xs"
               placeholder="Torrent Search"
             />
             <button
-              onClick={() =>
+            type="submit"
+              onClick={(event) =>
                 fetchTorrentsHandler([
+                  event,
                   setLoading,
                   setData,
                   setError,
@@ -65,7 +67,7 @@ export default function Home() {
             >
               SEARCH
             </button>
-          </div>
+          </form>
         </div>
 
        
