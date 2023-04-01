@@ -33,7 +33,7 @@ export default function Home() {
       </Head>
       <main className="flex w-full flex-col items-center  h-full">
         {/* App Container ********************************************************************************/}
-        <div className="flex flex-col shadow-2xl bg-primary justify-center rounded-xl h-fit  w-[95%] md:w-[65%] xl:2/3 2xl:w-[45%] mt-4  md:mt-12  py-2 ">
+        <div className="flex relative flex-col shadow-2xl bg-primary justify-center rounded-xl h-fit  w-[95%] md:w-[65%] xl:2/3 2xl:w-[45%] mt-4  md:mt-12  py-2 ">
           {/* Homepage Banner Image Container ************************************************************/}
           <div className="  flex justify-center">
             <Image
@@ -68,6 +68,7 @@ export default function Home() {
               SEARCH
             </button>
           </form>
+          <span className="bg-secondary text-semibold py-1 px-2 text-secondary-content absolute  rounded-full top-2 right-2 w-fit" >@aru</span>
         </div>
 
        
