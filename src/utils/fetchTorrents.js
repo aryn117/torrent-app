@@ -35,10 +35,7 @@ export default async function fetchTorrentsHandler(
       res_pirateBay.value.ok === false &&
       res_rarbg.value.ok === false
     ) {
-      console.log(
-        "%c ⛔Error: 404, Probably Couldn't find any Search Results",
-        "color:lightcoral; font-size:16px"
-      );
+
       const rx = await res_1337x.value.json();
       throw new Error(`${rx.code}: ${rx.errorMessage}`);
     }
@@ -57,7 +54,7 @@ export default async function fetchTorrentsHandler(
     const returnArray = sortArray(temp);
     setData(returnArray);
   } catch (error) {
-    console.error(error.message);
+
     setError(error);
     toast.error("Error: " + error.message);
     setLoading(false);

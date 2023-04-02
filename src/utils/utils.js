@@ -1,7 +1,5 @@
 export const sortArray = (arr) => {
-    const [ temp2 ] =  arr;
-    console.log(temp2);
-    
+    const [ temp2 ] =  arr;    
     if(temp2 === []) return;
     if(temp2.length < 1) return;
     
