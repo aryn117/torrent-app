@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import { ToastContainer } from "react-toastify";
 
 export default function App({ Component, pageProps }) {
   return (
@@ -13,11 +14,12 @@ export default function App({ Component, pageProps }) {
         newestOnTop={false}
         closeOnClick
         rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
+        toastStyle={{ width: "100svw" }}
         theme="dark"
       />
+
+       {/* link to seedr */}
+     
       <Component {...pageProps} />{" "}
     </>
   );

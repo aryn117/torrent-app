@@ -6,12 +6,15 @@ export default function Document() {
 
       <meta
         name="viewport"
-        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, user-scalable=no, viewport-fit=cover"
+        content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=yes, user-scalable=no, viewport-fit=cover"
       />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="apple-touch-icon" href="images/icons/icon-96x96.png"></link>
+        <meta name="theme-color" content="#EF9FBC" />
       <Head />
       <body>
         <Main />
-        <NextScript />
+        <NextScript />        
       </body>
     </Html>
   );

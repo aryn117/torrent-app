@@ -12,10 +12,20 @@ import { toast } from "react-toastify";
 export default function LinkContainer({ data }) {
 
 
-  const copyMagnetLinkToClipboardHandler = (link) => {
+  const copyMagnetLinkToClipboardHandler = async () => {
     console.log('copy fired')
-    toast("Magnet Link Copied to Clipboard");
-    navigator.clipboard.writeText(data.Magnet);
+
+  
+
+    try {
+      await navigator.clipboard.writeText(data.Magnet);
+      console.log('Content copied to clipboard');
+      toast.success("Magnet Link Copied to Clipboard")
+      /* Resolved - text copied to clipboard successfully */
+    } catch (err) {
+      console.error('Failed to copy: ', err);
+      toast.error("Failed to Copy Magnet Link" + err)
+    }
   }
 
   return (

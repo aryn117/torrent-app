@@ -35,7 +35,7 @@ export default function Home() {
       </Head>
       <main className="flex w-full  flex-col items-center  h-full">
         {/* App Container ********************************************************************************/}
-        <div className="flex relative flex-col shadow-2xl bg-primary justify-center rounded-xl h-fit  w-[95%] md:w-[65%] xl:2/3 2xl:w-[45%] mt-4  md:mt-12  py-2 ">
+        <div className="flex relative pb-12  flex-col shadow-2xl bg-primary justify-center rounded-xl h-fit  w-[95%] md:w-[65%] xl:2/3 2xl:w-[45%] mt-4  md:mt-12  py-2 ">
           {/* Homepage Banner Image Container ************************************************************/}
           <div className="  flex justify-center">
             <Image
@@ -73,6 +73,21 @@ export default function Home() {
           <span className="bg-secondary text-semibold py-1 px-2 text-secondary-content absolute  rounded-full top-2 right-2 w-fit">
             @aru
           </span>
+          <Link target={"_blank"} href="https://www.seedr.cc">
+        
+        <div
+          className="tooltip z-50 tooltip-left absolute bottom-2 right-2"
+          data-tip="Go to seedr.cc"
+        >
+          <span className="btn  btn-circle btn-accent hover:bg-secondary-hover p-2 ">
+          <Image
+              className="fit-content"
+              src={seedr_link}
+              alt="magnet icon"
+            /> 
+          </span>
+        </div>
+        </Link>
         </div>
 
         {/* result list */}
@@ -86,22 +101,7 @@ export default function Home() {
 
         <div className="flex flex-col  h-fit   w-[95%] md:w-[65%] xl:2/3 2xl:w-[40%]  py-2 "></div>
 
-        {/* link to seedr */}
-        <Link target={"_blank"} href="https://www.seedr.cc">
-        
-        <div
-          className="tooltip tooltip-left absolute bottom-5 right-3"
-          data-tip="Go To seedr.cc"
-        >
-          <span className="btn btn-circle btn-primary hover:bg-secondary-hover p-2 ">
-          <Image
-              className="fit-content"
-              src={seedr_link}
-              alt="magnet icon"
-            />
-          </span>
-        </div>
-        </Link>
+       
       </main>
     </>
   );
