@@ -9,7 +9,7 @@ export default function Document() {
         content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=yes, user-scalable=no, viewport-fit=cover"
       />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="images/icons/icon-96x96.png"></link>
+        <link rel="apple-touch-icon" href="/images/apple-touch-icon.png"></link>
         <meta name="theme-color" content="#EF9FBC" />
       <Head />
       <body>
